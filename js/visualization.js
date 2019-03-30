@@ -69,16 +69,18 @@ d3.selectAll("circle")
     // grab the color of the circle being hovered over
     var currentCircleFill = d3.select(this)[0][0].style.fill
     d3.select('#current-hsl')
-    .text(function() {return currentCircleFill })
+    .text(function() {return "hex: " + d3.hsl(currentCircleFill) })
     .style("color", function() { return currentCircleFill })
+
+		d3.select('#current-rgb')
+		.text(function() {return currentCircleFill })
+		.style("color", function() { return currentCircleFill })
 
     d3.select('#current-hex')
-    .text(function() {return currentCircleFill })
+    .text(function() {return "hsl: " + Math.round(d3.hsl(currentCircleFill).h) + " " + Math.round(d3.hsl(currentCircleFill).s) + " " + Math.round(d3.hsl(currentCircleFill).l) })
     .style("color", function() { return currentCircleFill })
 
-    d3.select('#current-rgb')
-    .text(function() {return currentCircleFill })
-    .style("color", function() { return currentCircleFill })
+
    })
 	.on("mouseout", function(d) { d3.select(this).attr("r", nodeScale(d * Math.random()));});
 
