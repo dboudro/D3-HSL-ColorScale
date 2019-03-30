@@ -1,0 +1,30 @@
+.axis path {
+fill: none;
+stroke: #FFF;
+shape-rendering: crispEdges;
+}
+
+.axis text {
+font: 10px sans-serif;
+fill: #FFF;
+}
+
+body {
+background-color: #000;
+}
+
+.canvas {
+display: block;
+margin: auto;
+}
+
+.current-color-container {
+background-color: black;
+margin: 16px;
+width: 200px;
+height: 80px;
+font-size: 24px;
+font-weight: bold;
+border: none;
+font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
