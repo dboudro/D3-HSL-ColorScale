@@ -67,7 +67,7 @@ d3.selectAll('circle')
   .on('mouseover', function () {
     d3.select(this).attr('r', 80)
     // grab the color of the circle being hovered over
-    let currentCircleFill = d3.select(this)[0][0].style.fill
+    var currentCircleFill = d3.select(this)[0][0].style.fill
     d3.select('#current-hsl')
       .text(function () { return 'hex: ' + d3.hsl(currentCircleFill) })
       .style('color', function () { return currentCircleFill })
@@ -93,3 +93,8 @@ let axisGroup = canvas.append('g')
   .attr('transform', 'translate(' + margin.left + ',' + axisMove + ')')
   .attr('width', width)
   .call(xAxis)
+
+d3.select('#saturation')
+// step 1. working on slider knowing the saturation value. Then the circle needs to know the saturation slider value.
+  .attr('value', function () { return Math.round(d3.hsl(currentCircleFill).s) })
+  .on('change', function () { return d3.select(this).attr('value', 200) })
